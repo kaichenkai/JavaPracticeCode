@@ -8,6 +8,11 @@
     <servlet>
         <servlet-name>demo1</servlet-name>
         <servlet-class>com.web.Servlet_01_快速使用servlet</servlet-class>
+        <!--指定 Servlet 对象创建的时机
+        1. 默认第一次访问时创建 (配置负数也行)
+        2. 在 tomcat 服务启动时创建 (配置 0 或 正整数)
+        -->
+        <load-on-startup>0</load-on-startup>
     </servlet>
 
     <servlet-mapping>
