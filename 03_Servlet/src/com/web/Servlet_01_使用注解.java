@@ -8,7 +8,7 @@ import java.io.IOException;
 /**
  * 用注解的方式使用 Servlet
  */
-@WebServlet(urlPatterns = "/demo")
+@WebServlet(urlPatterns = "/demo1")
 public class Servlet_01_使用注解 implements Servlet {
 
     @Override
