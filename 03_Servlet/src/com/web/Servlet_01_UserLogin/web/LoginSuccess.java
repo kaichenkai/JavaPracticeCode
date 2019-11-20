@@ -1,14 +1,11 @@
 package com.web.Servlet_01_UserLogin.web;
 
-import org.springframework.jdbc.core.JdbcTemplate;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Map;
 
 /**
  * 登录成功
