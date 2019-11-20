@@ -1,9 +1,5 @@
 package com.web.Servlet_01_UserLogin.domain;
 
-import com.web.Servlet_01_UserLogin.util.JDBCDruidUtils;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.JdbcTemplate;
-
 public class User {
     private Integer id;
     private String username;
