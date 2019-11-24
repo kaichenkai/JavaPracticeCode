@@ -14,7 +14,11 @@ import java.io.IOException;
 @WebServlet("/demo9")
 public class Servlet_09_HttpServlet获取ServletContext extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ServletContext sc = request.getServletContext();
-        System.out.println(sc);  //  org.apache.catalina.core.ApplicationContextFacade@21dfe549
+        ServletContext context = request.getServletContext();
+        System.out.println(context);  //  org.apache.catalina.core.ApplicationContextFacade@21dfe549
+
+        String a = context.getRealPath("/WEB-INF/classes/a.txt");
+        System.out.println(a);
+
     }
 }

@@ -1,4 +1,4 @@
-package com.web.Servlet_01_UserLogin.web;
+package com.web.Servlet_05_验证码登录案例.web;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
@@ -11,7 +11,7 @@ import java.io.IOException;
 /**
  * 登录成功
  */
-@WebServlet("/success")
+@WebServlet("/success2")
 public class LoginSuccess extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //        response.setCharacterEncoding("utf-8");  // 设置流的编码可以省略
