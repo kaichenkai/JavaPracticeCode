@@ -3,13 +3,18 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
+
     <bean name="source" class="com.company.pojo.Source">
         <property name="fruit" value="橙子"/>
         <property name="sugar" value="多糖"/>
         <property name="size" value="超大杯"/>
     </bean>
+
     <bean name="juickMaker" class="com.company.pojo.JuiceMaker">
         <property name="source"  ref="source" />
 
     </bean>
+
+    <bean name="productService" class="com.company.service.ProductService"/>
+
 </beans>

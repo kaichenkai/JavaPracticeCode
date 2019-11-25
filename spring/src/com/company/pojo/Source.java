@@ -3,6 +3,7 @@ package com.company.pojo;
 public class Source {
     private String fruit;  // 水果类型
     private String sugar;  // 糖分描述
+    private String size;  // 大小杯
 
     public String getFruit() {
         return fruit;
@@ -27,6 +28,4 @@ public class Source {
     public void setSize(String size) {
         this.size = size;
     }
-
-    private String size;  // 大小杯
 }
