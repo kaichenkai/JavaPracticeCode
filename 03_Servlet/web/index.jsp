@@ -11,6 +11,7 @@
     <title>$Title$</title>
   </head>
   <body>
-  $END$
+      <% out.write("<h1>HELLO WORLD</h1>"); %>
+      <%= "<h3>hello world</h3>" %>
   </body>
 </html>

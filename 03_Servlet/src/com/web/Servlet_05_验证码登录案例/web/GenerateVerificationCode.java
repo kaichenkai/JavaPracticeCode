@@ -13,6 +13,9 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Random;
 
+/**
+ * 生成图片验证码, 并把验证码存储到 session
+ */
 @WebServlet("/image/code2")
 public class GenerateVerificationCode extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
