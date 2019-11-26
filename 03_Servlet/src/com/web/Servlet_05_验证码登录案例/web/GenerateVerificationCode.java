@@ -34,19 +34,19 @@ public class GenerateVerificationCode extends HttpServlet {
 
         // 画上随机字母数字
         // 定义数组, 将随机数字存储到数组中
-        String imageCode = new String();
+        StringBuilder imageCode = new StringBuilder();
         String randomStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         Random ran = new Random();
         for (int i = 1; i <= 4 ; i++) {
             int index = ran.nextInt(randomStr.length());
             String s = String.valueOf(randomStr.charAt(index));
             g.drawString(s, width / 5 * i, height / 2);
-            imageCode += s;
+            imageCode.append(s);
         }
         // 存入到 session
         System.out.println(imageCode);
         HttpSession session = request.getSession();
-        session.setAttribute("imageCode", imageCode);
+        session.setAttribute("imageCode", imageCode.toString());
 
         // 画干扰线
         g.setColor(Color.GREEN);

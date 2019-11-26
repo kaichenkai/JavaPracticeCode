@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: chenkai
-  Date: 2019-11-18
-  Time: 21:44
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
@@ -22,7 +15,8 @@
               }
           }
       %>
-
-      <%= "<h3>欢迎您, " + username + "</h3>"%>
+      <%--如果 username 存在, 那么显示欢迎, 否则提示用户重新登录 (cookie过期)--%>
+      <%= username != "" ? "<h3>欢迎您, " + username + "</h3>":
+              "cookie 已过期, 请重新登录: localhost:8080/login.jsp"%>
   </body>
 </html>

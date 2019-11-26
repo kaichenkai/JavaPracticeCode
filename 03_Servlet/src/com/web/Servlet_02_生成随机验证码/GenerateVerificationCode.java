@@ -1,4 +1,4 @@
-package com.web.Servlet_02_生成随机验证码.web;
+package com.web.Servlet_02_生成随机验证码;
 
 import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
