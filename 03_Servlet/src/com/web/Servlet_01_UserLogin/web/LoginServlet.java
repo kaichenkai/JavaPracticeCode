@@ -22,7 +22,7 @@ public class LoginServlet extends HttpServlet {
 //            // 返回参数错误
 //            response.getWriter().write("参数缺失");
 //        }
-//        User user = new UserDao().login(username, passwd);
+//        com.web.User user = new UserDao().login(username, passwd);
 
         // 使用 BeanUtils 工具包将参数封装到 javabean 中 (像反序列化)
         // 1. 先获取参数, 放到 Map 集合中
