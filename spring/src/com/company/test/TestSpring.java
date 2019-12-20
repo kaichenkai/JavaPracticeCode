@@ -1,13 +1,11 @@
 package com.company.test;
 
-import com.company.pojo.JuiceMaker;
+import com.company.service.ProductService;
 import org.junit.Test;
+import com.company.pojo.JuiceMaker;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.company.pojo.Source;
-
-
-import org.junit.Test;
 
 public class TestSpring {
     @Test
@@ -25,5 +23,15 @@ public class TestSpring {
         // 依赖注入
         JuiceMaker jm = (JuiceMaker) context.getBean("juickMaker");
         jm.makeJuice();
+    }
+
+    @Test
+    public void testDoSomeService(){
+        ApplicationContext context = new ClassPathXmlApplicationContext(
+                new String[]{"applicationContext.xml"}
+        );
+
+        ProductService ps = (ProductService) context.getBean("productService");
+        ps.doSomeService();
     }
 }
