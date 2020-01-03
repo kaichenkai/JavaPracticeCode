@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- 通过 xml 方式装配 bean -->
+    <bean name="source" class="com.company.pojo.Source">
+        <property name="fruit" value="橙汁"/>
+        <property name="sugar" value="半糖"/>
+        <property name="size" value="大杯"/>
+    </bean>
+</beans>

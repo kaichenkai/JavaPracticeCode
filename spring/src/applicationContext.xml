@@ -21,7 +21,6 @@
 
     <bean name="juickMaker" class="com.company.pojo.JuiceMaker">
         <property name="source"  ref="source" />
-
     </bean>
 
     <bean name="productService" class="com.company.service.ProductService"/>
