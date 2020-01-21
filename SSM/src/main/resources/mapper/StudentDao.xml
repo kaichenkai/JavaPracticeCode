@@ -10,7 +10,7 @@
 
     <!--增加学生记录-->
     <select id="addStudent" parameterType="Student">
-        insert into student values(null, #{student_id}, #{name}, #{gender}, #{birthday}, #{address}, #{qq}, #{email})
+        insert into student values(null, #{studentId}, #{name}, #{gender}, #{birthday}, #{address}, #{qq}, #{email})
     </select>
 
     <!--删除学生记录-->
@@ -21,7 +21,7 @@
     <!--更新学生记录-->
     <select id="updateStudent" parameterType="Student">
         update student
-        set student_id = #{student_id}, name = #{name}, gender = #{gender}, birthday = #{birthday},
+        set student_id = #{studentId}, name = #{name}, gender = #{gender}, birthday = #{birthday},
             address = #{address}, qq = #{qq}, email = #{email}
         where id = #{id}
     </select>
@@ -33,7 +33,7 @@
 
     <resultMap id="student" type="student">
         <id column="id" property="id"/>
-        <result column="student_id" property="student_id"/>
+        <result column="student_id" property="studentId"/>
         <result column="name" property="name"/>
         <result column="gender" property="gender"/>
         <result column="birthday" property="birthday" javaType="java.sql.Date"/>

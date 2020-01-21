@@ -17,7 +17,7 @@
                 <table class="editTable">
                     <tr>
                         <td>学号：</td>
-                        <td><input type="text" name="studentId" id="studentId" value="${student.student_id}"
+                        <td><input type="text" name="studentId" id="studentId" value="${student.studentId}"
                                    placeholder="请在这里输入学号"></td>
                     </tr>
                     <tr>

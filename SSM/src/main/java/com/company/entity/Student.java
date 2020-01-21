@@ -1,5 +1,6 @@
 package com.company.entity;
 
+import javax.persistence.Column;
 import java.util.Date;
 
 /**
@@ -7,6 +8,7 @@ import java.util.Date;
  */
 public class Student {
     private int id;
+//    @Column(name = "student_id")
     private String studentId;
     private String name;
     private String gender;
@@ -37,11 +39,11 @@ public class Student {
         this.id = id;
     }
 
-    public String getStudent_id() {
+    public String getStudentId() {
         return studentId;
     }
 
-    public void setStudent_id(String studentId) {
+    public void setStudentId(String studentId) {
         this.studentId = studentId;
     }
 

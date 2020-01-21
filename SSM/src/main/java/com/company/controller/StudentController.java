@@ -52,7 +52,7 @@ public class StudentController {
             e.printStackTrace();
         }
         //
-        student.setStudent_id(studentId);
+        student.setStudentId(studentId);
         student.setName(name);
         student.setGender(gender);
         student.setBirthday(dateBirthday);
@@ -126,7 +126,7 @@ public class StudentController {
         }
         //
         student.setId(id);
-        student.setStudent_id(studentId);
+        student.setStudentId(studentId);
         student.setName(name);
         student.setGender(gender);
         student.setBirthday(dateBirthday);

@@ -33,7 +33,7 @@
         </thead>
         <tbody><c:forEach items="${students}" var="s" varStatus="status">
             <tr>
-                <td>${s.student_id}</td>
+                <td>${s.studentId}</td>
                 <td>${s.name}</td>
                 <td>${s.gender}</td>
                 <td>${s.birthday}</td>
