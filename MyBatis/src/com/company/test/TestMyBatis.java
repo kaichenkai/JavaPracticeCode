@@ -76,6 +76,10 @@ public class TestMyBatis {
         sqlSession.close();
     }
 
+    /**
+     * StudentAndCard 连接查询
+     * @throws IOException
+     */
     @Test
     public void testFindStudentByCardNumber() throws IOException {
         // 获取 配置信息, 得到 sqlSessionFactory
@@ -86,16 +90,17 @@ public class TestMyBatis {
         SqlSession sqlSession = sqlSessionFactory.openSession();
         SqlSession sqlSession2 = sqlSessionFactory.openSession();
         //
+//        StudentAndCard sac = sqlSession.selectOne("findStudentByCardNumber", 2222);
         StudentWithCard swc = sqlSession.selectOne("findStudentByCard", 2222);
         System.out.println(swc);
         sqlSession.commit();
         sqlSession.close();
 
         //
-        StudentWithCard swc2 = sqlSession2.selectOne("findStudentByCard", 2222);
-        System.out.println(swc2);
-        sqlSession2.commit();
-        sqlSession2.close();
+//        StudentWithCard swc2 = sqlSession2.selectOne("findStudentByCard", 2222);
+//        System.out.println(swc2);
+//        sqlSession2.commit();
+//        sqlSession2.close();
 //        System.out.println(swc.getStudent().getName());
     }
 }

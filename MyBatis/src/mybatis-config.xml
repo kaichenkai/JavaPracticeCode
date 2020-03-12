@@ -27,17 +27,18 @@
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://10.10.4.171:3306/mybatis?characterEncoding=UTF-8"/>
-                <property name="username" value="seemmo"/>
-                <property name="password" value="seemmo"/>
+<!--                <property name="url" value="jdbc:mysql://localhost:3306/mybatis?characterEncoding=UTF-8"/>-->
+                <property name="url" value="jdbc:mysql://localhost:3306/mybatis?serverTimezone=UTC"/>
+                <property name="username" value="root"/>
+                <property name="password" value="123456"/>
             </dataSource>
         </environment>
     </environments>
     <!--映射文件-->
     <mappers>
-        <mapper resource="com/company/pojo/Student.xml"/>
-        <!--<mapper resource="com/company/pojo/StudentMapper.xml"/>-->
-        <!--<mapper class="com.company.mapper.StudentMapper"/>-->
+<!--        <mapper resource="com/company/pojo/Student.xml"/>-->
+<!--        <mapper resource="com/company/pojo/StudentMapper.xml"/>-->
+        <mapper class="com.company.mapper.StudentMapper"/>
     </mappers>
 
 </configuration>

@@ -17,7 +17,7 @@
     </select>
 
     <insert id="addStudent" parameterType="Student">
-        insert into student (id, studentId, name) values(#{id}, #{studentId}, #{name})
+        insert into student (id, student_id, name) values(#{id}, #{student_id}, #{name})
     </insert>
 
     <delete id="deleteStudent" parameterType="Student">
@@ -29,7 +29,7 @@
     </update>
 
     <!-- findStudentByCardNumber -->
-    <select id="findStudentByCardNumber" parameterType="_int" resultType="Student">
+    <select id="findStudentByCardNumber" parameterType="_int" resultType="StudentAndCard">
         select student.*, card.*
         from student,card
         where student.card_id = card.id AND card.number = #{number};

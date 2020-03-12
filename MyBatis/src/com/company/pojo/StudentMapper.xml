@@ -6,32 +6,32 @@
 <!-- namespace 属性其实就是对 SQL 进行分类管理，实现不同业务的 SQL 隔离 -->
 <mapper namespace="com.company.mapper.StudentMapper">
     <!-- 开启本 Mapper 的 namespace 下的二级缓存 -->
-    <cache/>
+<!--    <cache/>-->
 
-    <!--<select id="listStudent" resultType="Student">-->
-        <!--select * from student-->
-    <!--</select>-->
+    <select id="listStudent" resultType="Student">
+        select * from student
+    </select>
 
-    <!--<select id="findSudentById" parameterType="_int" resultMap="StudentInfoMap">-->
-        <!--select * from student where id=#{id}-->
-    <!--</select>-->
-    <!--<resultMap id="StudentInfoMap" type="com.company.pojo.Student">-->
-        <!--&lt;!&ndash; id 标签表示对应的主键 column 对应查询结果的列值 property 对应封装类中的属性名称 &ndash;&gt;-->
-        <!--<id column="id" property="id"/>-->
-        <!--<result column="student_id" property="student_id"/>-->
-        <!--<result column="card_id" property="card_id"/>-->
-        <!--<result column="number" property="number"/>-->
-    <!--</resultMap>-->
+    <select id="findSudentById" parameterType="_int" resultMap="StudentInfoMap">
+        select * from student where id=#{id}
+    </select>
+    <resultMap id="StudentInfoMap" type="com.company.pojo.Student">
+        <!-- id 标签表示对应的主键 column 对应查询结果的列值 property 对应封装类中的属性名称 -->
+        <id column="id" property="id"/>
+        <result column="student_id" property="student_id"/>
+        <result column="card_id" property="card_id"/>
+        <result column="number" property="number"/>
+    </resultMap>
 
-    <!--<insert id="insertStudent" parameterType="Student">-->
-        <!--insert into student (id, studentId, name) values(#{id}, #{studentId}, #{name})-->
-    <!--</insert>-->
+    <insert id="insertStudent" parameterType="Student">
+        insert into student (id, studentId, name) values(#{id}, #{studentId}, #{name})
+    </insert>
 
-    <!--<delete id="deleteStudent" parameterType="_int">-->
-        <!--delete from student where id = #{id}-->
-    <!--</delete>-->
+    <delete id="deleteStudent" parameterType="_int">
+        delete from student where id = #{id}
+    </delete>
 
-    <!--<update id="updateStudent" parameterType="Student">-->
-        <!--update student set name=#{name} where id=#{id}-->
-    <!--</update>-->
+    <update id="updateStudent" parameterType="Student">
+        update student set name=#{name} where id=#{id}
+    </update>
 </mapper>
