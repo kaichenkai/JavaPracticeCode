@@ -1,16 +1,21 @@
 package com.company.controller;
 
-
-import org.springframework.stereotype.Controller;
+import com.company.services.StudentProperties;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
-
-@Controller
+/**
+ * hello 控制器
+ */
+@RestController
 public class HelloController {
-    @ResponseBody
+    @Autowired
+    private StudentProperties studentProperties;
+
     @RequestMapping("/hello")
     public String hello(){
-        return "Hello World";
+//        return "hello world";
+        return "12123123123123";
     }
 }
