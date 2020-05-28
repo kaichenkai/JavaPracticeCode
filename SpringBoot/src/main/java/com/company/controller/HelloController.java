@@ -5,6 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * hello 控制器
  */
@@ -15,7 +18,9 @@ public class HelloController {
 
     @RequestMapping("/hello")
     public String hello(){
-//        return "hello world";
-        return "12123123123123";
+//        List<Integer> list = List.of(1, 2, 5);  // java1.9版本支持
+
+//        return list.toString();
+        return "123";
     }
 }

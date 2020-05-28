@@ -1,0 +1,17 @@
+spring:
+  ## 数据库参数
+  datasource:
+    url: jdbc:mysql://10.10.4.171:3306/student?characterEncoding=UTF-8
+    username: seemmo
+    password: seemmo
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update  # 新增数据库链接必备的参数
+
+## 配置文件读取测试
+server:
+  port: 8080
+student:
+  name: 测试名称
+  age: 22
