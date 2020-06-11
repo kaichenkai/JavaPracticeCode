@@ -1,0 +1,6 @@
+#
+#Mon Jan 20 18:10:00 CST 2020
+com.company.controller.StudentController=org.springframework.stereotype.Component
+com.company.service.impl.UserServiceImpl=org.springframework.stereotype.Component
+com.company.service.impl.StudentServiceImpl=org.springframework.stereotype.Component
+com.company.controller.UserController=org.springframework.stereotype.Component
