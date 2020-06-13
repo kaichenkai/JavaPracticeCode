@@ -1,6 +1,5 @@
 package com.company.test;
 
-import com.company.pojo.Student;
 import com.company.pojo.StudentAndCard;
 import com.company.pojo.StudentWithCard;
 import org.apache.ibatis.io.Resources;

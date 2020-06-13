@@ -1,6 +1,5 @@
 package com.company.service;
 
-import com.company.pojo.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

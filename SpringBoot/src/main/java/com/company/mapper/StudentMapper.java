@@ -1,6 +1,5 @@
 package com.company.mapper;
 
-import com.company.pojo.Student;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 

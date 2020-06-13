@@ -8,7 +8,6 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.company.pojo.Source;
 import com.company.pojo.Config;
-import com.company.pojo.Student;
 import com.company.service.ProductService;
 import com.company.service.StudentServiceImpl;
 

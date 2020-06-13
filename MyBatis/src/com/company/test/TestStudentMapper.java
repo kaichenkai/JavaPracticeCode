@@ -1,7 +1,6 @@
 package com.company.test;
 
 import com.company.mapper.StudentMapper;
-import com.company.pojo.Student;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
