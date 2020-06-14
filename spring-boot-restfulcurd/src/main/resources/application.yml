@@ -1,1 +1,6 @@
-
+spring:
+  profiles:
+    active: dev
+  #指定静态资源目录
+  resources:
+    static-locations: classpath:/dist/,classpath:/test
