@@ -1,6 +1,6 @@
 <configuration scan="false" scanPeriod="60 seconds" debug="false">
     <!--定义日志的根目录-->
-    <property name="LOG_HOME" value="F:\log" />
+    <property name="LOG_HOME" value="E:\log" />
     <!--定义日志文件的名称-->
     <property name="appName" value="aitraffic" />
     <!--控制台输出-->
@@ -53,7 +53,7 @@
     </appender>
 
     <!-- level属性：指定logger记录日志的最低级别 -->
-    <root level="info">
+    <root level="DEBUG">
         <!-- ref属性：指定根logger关联的appender -->
         <appender-ref ref="StdoutAppender" />
         <appender-ref ref="FileAppender" />
