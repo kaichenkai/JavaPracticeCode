@@ -14,7 +14,6 @@ public class Response<T> {
     private T data;
 
     // getters, setters, toString(), etc.
-
     public int getCode() {
         return code;
     }
@@ -32,22 +31,6 @@ public class Response<T> {
         this.message = message;
         return this;
     }
-
-//    public Response setCodeAndMessage(int code, String message) {
-//        this.code = code;
-//        if (message == null) {
-//            this.message = "success";
-//        } else {
-//            this.message = message;
-//        }
-//        return this;
-//    }
-//
-//    public Response setCodeAndMessage(ExceptionInfo exceptionInfo) {
-//        this.code = exceptionInfo.code;
-//        this.message = exceptionInfo.message;
-//        return this;
-//    }
 
     public T getData() {
         return data;

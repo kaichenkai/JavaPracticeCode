@@ -36,6 +36,20 @@ public class Demo02List {
         Person p4 = new Person("xiaohong", 20);
         System.out.println(list.contains(p4)); //true
         System.out.println(list.indexOf(p4)); //1
+        System.out.println(list.size());
+        Person anson = list.set(2, new Person("anson", 12));
+//        Person johny = list.set(3, new Person("johny", 13));//index越界
+        System.out.println(anson.toString());
+
+        // 创建一个新 list ， 把前边容器里所有的对象都加进来
+        List list1 = new ArrayList();
+        list1.add(new Person("test", 10));
+        list1.addAll(list);
+        System.out.println(list1);
+
+        //清空
+        list1.clear();
+        System.out.println(list1);
     }
 }
 
@@ -105,5 +119,13 @@ class Person {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
     }
 }
