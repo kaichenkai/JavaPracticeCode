@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
  * @author: kaichenkai
  * @create: 6/16/2020 17:08
  */
-@Service()
+@Service
 public class TestServiceImpl implements TestService {
     @Override
     public String testService() {
