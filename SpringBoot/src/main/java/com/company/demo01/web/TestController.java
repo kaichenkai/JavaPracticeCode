@@ -1,5 +1,6 @@
 package com.company.demo01.web;
 
+import com.company.commons.jdbc.DruidDB;
 import com.company.core.Response;
 import com.company.core.ResponseGenerator;
 import com.company.demo01.dao.User;
@@ -7,6 +8,7 @@ import com.company.demo01.service.TestService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +27,9 @@ public class TestController {
 
     @Autowired
     private TestService testService;
+
+    @Autowired
+    private DruidDB druidDB;
 
     @GetMapping(value = "", name = "index")
     public Response index() {
@@ -45,6 +50,13 @@ public class TestController {
     public Response testException(){
         //来一个除0异常
         int a = 100 / 0;
+        return ResponseGenerator.genSuccessResp();
+    }
+
+    //连接池测试
+    @GetMapping(value = "druid", name = "连接池测试")
+    public Response druidTest(){
+        System.out.println(druidDB.toString());
         return ResponseGenerator.genSuccessResp();
     }
 }
