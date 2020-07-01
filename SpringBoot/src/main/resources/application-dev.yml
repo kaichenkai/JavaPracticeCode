@@ -3,9 +3,8 @@ server:
 
 spring:
   #数据源
-#  datasource:
-#    driver-class-name: com.mysql.cj.jdbc.Driver
-#    type: com.alibaba.druid.pool.DruidDataSource
-#    url: jdbc:mysql://10.10.4.36:3306/wf_carinfo?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true
-#    username: dataaccess
-#    password: da123qwe
+  datasource:
+    url: jdbc:mysql://10.10.4.36:3306/wf_carinfo?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: dataaccess
+    password: da123qwe

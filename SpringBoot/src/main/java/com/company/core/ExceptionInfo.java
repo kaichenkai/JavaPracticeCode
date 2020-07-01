@@ -5,13 +5,23 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public enum ExceptionInfo {
 	/**
+	 * 服务内部错误
+	 */
+	INTERNAL_SERVER_ERROR(500, "服务内部错误, 请联系管理员!"),
+	/**
 	 * 未知错误
 	 */
-	Unknown(100, "Unknown Exception"),
+	Unknown(501, "Unknown Exception"),
 	/**
 	 * 未定义的错误
 	 */
-	UNDEFINE(101, "undefine system exception"),
+	UNDEFINE(502, "undefine system exception"),
+
+
+	/**
+	 * 无数据
+	 */
+	NO_DATA(101, "no data"),
 	/**
 	 * 违法记录id重复
 	 */
@@ -31,7 +41,7 @@ public enum ExceptionInfo {
 	/**
 	 * 数据库操作错误
 	 */
-	DATABASE_OPERATION_ERROR(500, "database operation error, please contact the administrator"),
+	DATABASE_OPERATION_ERROR(510, "database operation error, please contact the administrator"),
 
 	/********************* 复核结果查询**********************/
 	/**

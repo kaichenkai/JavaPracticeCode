@@ -9,6 +9,11 @@ import java.util.function.Consumer;
  * @create: 6/16/2020 18:03
  */
 public class Response<T> {
+    public static final int SUCCESS_CODE = 0;
+    public static final int UNAUTHORIZED = 403;//未认证（签名错误）
+    public static final int NOT_FOUND = 404;//接口不存在
+    public static final int USER_UNABLE = 409;//用户账号不可用，需修改密码
+    
     private int code;
     private String message;
     private T data;
