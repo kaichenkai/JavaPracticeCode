@@ -37,7 +37,7 @@ public class TestController {
         return ResponseGenerator.genSuccessResp();
     }
 
-    //匹配路由参数(不是查询字符串参数)
+    //匹配路径参数(不是查询字符串参数)
     @GetMapping(value = "{id}", name = "user")
 //    public Response getUser(@PathVariable(value = "id") int id) {
     public Response getUser(@PathVariable int id) {

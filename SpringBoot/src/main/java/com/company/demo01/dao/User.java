@@ -1,6 +1,5 @@
 package com.company.demo01.dao;
-
-import com.fasterxml.jackson.annotation.JsonAlias;
+import javax.validation.constraints.NotBlank;
 
 /**
  * @author: kaichenkai
@@ -8,7 +7,10 @@ import com.fasterxml.jackson.annotation.JsonAlias;
  */
 public class User {
     private int id;
+
+    @NotBlank(message = "name 不能为空")
     private String name;
+
     private int age;
 
     public User() {
@@ -42,5 +44,14 @@ public class User {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                '}';
     }
 }
