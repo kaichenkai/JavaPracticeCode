@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <!-- Database connection settings -->
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://10.10.4.171:3306/test?characterEncoding=UTF-8</property>
+        <property name="connection.username">seemmo</property>
+        <property name="connection.password">seemmo</property>
+        <!-- SQL dialect -->
+<!--        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>-->
+        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property><!-- 支持mysql高版本的建表 -->
+        <property name="current_session_context_class">thread</property><!-- 这是Hibernate事务管理方式，即每个线程一个事务 -->
+        <property name="show_sql">true</property><!--显示执行的sql语句-->
+        <property name="hibernate.hbm2ddl.auto">update</property><!-- 这表示是否会自动更新数据库的表结构，有这句话，其实是不需要创建表的，因为Hibernate会自动去创建表结构 -->
+        <!-- 配置二级缓存 -->
+        <property name="hibernate.cache.use_second_level_cache">true</property>
+        <!-- <property name="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</property>--> <!-- hibernate3的配置-->
+         <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+
+        <!-- 配置 c3p0 连接池-->
+        <property name="hibernate.connection.provider_class">
+            <!-- org.hibernate.collection.C3P0ConnectionProvider -->
+            org.hibernate.c3p0.internal.C3P0ConnectionProvider
+        </property>
+        <property name="hibernate.c3p0.max_size">20</property>
+        <property name="hibernate.c3p0.min_size">5</property>
+        <property name="hibernate.c3p0.timeout">5000</property><!-- 连接池里连接的超时时长 -->
+        <property name="hibernate.c3p0.max_statements">100</property><!--最大缓存多少个statement对象  -->
+        <property name="hibernate.c3p0.idle_test_period">3000</property><!-- 该线程会根据时间差值判断要不要把超时的连接移除 -->
+        <property name="hibernate.c3p0.acquire_increment">10</property><!-- 当连接池耗尽并接到获得连接的请求，则新增加连接的数量 -->
+        <property name="hibernate.c3p0.validate">false</property><!-- 是否验证，检查连接 -->
+
+        <!-- 实体类 -->
+        <!-- 非注解配置-->
+        <mapping resource="product.hbm.xml" /><!-- 这表示Hibernate会去识别Product这个实体类 -->
+        <mapping resource="category.hbm.xml" />
+        <mapping resource="user.hbm.xml" />
+
+        <!-- 注解配置 -->
+        <mapping class="com.company.demo02注解.pojo.Product" /><!-- 这表示Hibernate会去识别Product这个实体类 -->
+        <mapping class="com.company.demo02注解.pojo.Category" />
+        <mapping class="com.company.demo02注解.pojo.User" />
+    </session-factory>
+</hibernate-configuration>

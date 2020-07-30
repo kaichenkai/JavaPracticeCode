@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.company.demo01.pojo">
+    <class name="Product" table="product_">
+        <id name="id" column="id">
+            <generator class="native"><!-- 意味着id的自增长方式采用数据库的本地方式 -->
+            </generator>
+        </id>
+        <!--version元素必须紧挨着id后面
+         增加一个version字段，用于版本信息控制。这就是乐观锁的核心机制。
+         比如session1获取product1的时候，version=1。
+         那么session1更新product1的时候，就需要确保version还是1才可以进行更新，
+         并且更新结束后，把version改为2。
+         -->
+        <version name="version" column="ver" type="int" />
+        <property name="name" />
+        <property name="price" />
+        <!-- 使用many-to-one 标签设置多对一关系-->
+        <!-- name="category" 对应Product类中的category属性-->
+        <!-- class="Category" 表示对应Category类-->
+        <!-- column="cid" 表示指向 category_表的外键-->
+        <many-to-one name="category" class="Category" column="cid" />
+
+        <!-- 与 User 的多对多关系-->
+        <set name="users" lazy="true">
+            <key column="pid"/>
+            <many-to-many column="uid" class="User" />
+        </set>
+    </class>
+</hibernate-mapping>

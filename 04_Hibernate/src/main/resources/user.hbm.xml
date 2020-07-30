@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.company.demo01.pojo">
+    <class name="User" table="user_">
+        <id name="id" column="id">
+            <generator class="native"><!-- 意味着id的自增长方式采用数据库的本地方式 -->
+            </generator>
+        </id>
+        <property name="name" />
+        <!-- 使用many-to-many 标签设置多对多关系-->
+        <!-- lazy="false" 表示不使用延迟加载。关于延迟加载，请参考关系的延迟加载-->
+        <!-- <key column="uid" /> 表示外键是uid-->
+        <!-- <many-to-many class="Product" /> 表示一对多所对应的类是Product-->
+        <set name="products" lazy="true">
+            <key column="uid"/>
+            <many-to-many column="pid" class="Product" />
+        </set>
+    </class>
+</hibernate-mapping>
