@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation=" http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+    <!-- 注解: 对Bean的注解
+        其作用是告诉Spring，bean都放在 com.company.model 这个包下
+    -->
+    <context:component-scan base-package="com.company.model"/>
+    <context:component-scan base-package="com.company.service"/>
+    <context:component-scan base-package="com.company.aspect"/>
+
+    <!-- 切面自动配置 -->
+    <aop:aspectj-autoproxy/>
+
+    <!-- 注解: 对属性名和方法名的注解 -->
+    <!--        <context:annotation-config />-->
+
+    <!-- 分类 -->
+    <!--    <bean name="category" class="com.company.model.Category">-->
+    <!--        <property name="name" value="category1" />-->
+    <!--    </bean>-->
+
+    <!-- 产品 -->
+    <!--    <bean name="product" class="com.company.model.Product">-->
+    <!--        <property name="name" value="macbook" />-->
+    <!--        <property name="price" value="9200" />-->
+    <!--        <property name="category" ref="category" />&lt;!&ndash;注入分类对象&ndash;&gt;-->
+    <!--    </bean>-->
+
+    <!-- ProductService -->
+    <!--    <bean name="productService" class="com.company.service.ProductService" />-->
+
+    <!-- 配置切面 -->
+<!--    <aop:config>-->
+<!--        &lt;!&ndash; where：在哪些地方（包.类.方法）做增加-->
+<!--            * 返回任意类型-->
+<!--            com.how2java.service.ProductService.* 包名以 com.how2java.service.ProductService 开头的类的任意方法-->
+<!--            (..) 参数是任意数量和类型-->
+<!--        &ndash;&gt;-->
+<!--        <aop:pointcut id="loggerCutpoint" expression="execution(* com.company.service.ProductService.*(..)) "/>-->
+
+<!--        &lt;!&ndash; what:做什么增强 &ndash;&gt;-->
+<!--        <aop:aspect id="logAspect" ref="loggerAspect">-->
+<!--            &lt;!&ndash; when:在什么时机（方法前/后/前后） &ndash;&gt;-->
+<!--            <aop:around pointcut-ref="loggerCutpoint" method="log" />-->
+<!--        </aop:aspect>-->
+<!--    </aop:config>-->
+</beans>
