@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 下面一行, xml 配置文件时使用-->
+<!--<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">-->
+<beans  xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+    <!-- 配置注解方式 -->
+    <context:component-scan base-package="com.company.controller"/><!-- 开启包扫描，对指定的包进行注解扫描 -->
+<!--    <mvc:annotation-driven />&lt;!&ndash; 开启注解功能 &ndash;&gt;-->
+
+
+<!--        <bean id="simpleUrlHandlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">-->
+<!--            <property name="mappings">-->
+<!--                <props>-->
+<!--                    <prop key="/index">indexController</prop>-->
+<!--                </props>-->
+<!--            </property>-->
+<!--        </bean>-->
+<!--        &lt;!&ndash; 配置控制器-相当于配置了处理类&ndash;&gt;-->
+<!--        <bean id="indexController" class="com.company.controller.IndexController" />&lt;!&ndash; 需要配置全路径 &ndash;&gt;-->
+
+
+    <!-- 配置资源视图解析器-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!--前缀-->
+        <property name="prefix" value="/WEB-INF/views/"/>
+        <!--后缀-->
+        <property name="suffix" value=".jsp"/>
+    </bean>
+</beans>
