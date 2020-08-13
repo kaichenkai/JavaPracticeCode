@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.company.pojo">
+    <!-- 产品与分类 多对一 -->
+    <resultMap id="productBean" type="Product">
+        <id column="pid" property="id" />
+        <result column="pname" property="name" />
+        <result column="price" property="price" />
+
+        <!-- 多对一的关系 -->
+        <!-- property: 指的是集合属性的值, ofType：指的是集合中元素的类型 -->
+        <association property="category" javaType="Category">
+            <id column="cid" property="id" />
+            <result column="cname" property="name" />
+        </association>
+    </resultMap>
+
+    <!-- 关联查询分类和产品表 -->
+    <select id="listProductContainCategory" resultMap="productBean">
+            select c.*, p.*, c.id cid, p.id pid, c.name cname, p.name pname from product_ p left join category_ c on p.cid = c.id
+    </select>
+
+    <update id="updateProductOfCategory" parameterType="map">
+        update product_ set cid = #{cid} where id = #{pid}
+    </update>
+
+    <select id="getProduct" parameterType="_int" resultMap="productBean">
+            select c.*, p.*, c.id 'cid', p.id 'pid', c.name 'cname', p.name 'pname'
+                from category_ c
+                left join product_ p on c.id = p.cid
+            where p.id = #{id}
+    </select>
+
+    <!-- 产品与订单的多对多， 由产品查询所有的订单 -->
+    <resultMap id="productOrderBean" type="Product">
+        <id column="pid" property="id" />
+        <result column="pname" property="name" />
+        <result column="price" property="price" />
+        <association property="category" javaType="Category">
+            <id column="cid" property="id" />
+            <result column="cname" property="name" />
+        </association>
+
+        <collection property="orderItems" ofType="OrderItem">
+            <id column="oiid" property="id" />
+            <result column="number" property="number" />
+            <association property="order" javaType="Order">
+                <id column="oid" property="id"/>
+                <result column="code" property="code"/>
+            </association>
+        </collection>
+    </resultMap>
+
+    <select id="listProductContainOrder" resultMap="productOrderBean">
+            select o.*, p.*, oi.*, p.id pid, c.id cid, o.id oid, oi.id oiid, p.name pname, c.name cname
+                from product_ p
+                left join category_ c on p.cid = c.id
+                left join order_item_ oi    on p.id =oi.pid
+                left join order_ o on o.id = oi.oid
+    </select>
+
+    <select id="getProductContainOrder" parameterType="_int" resultMap="productOrderBean">
+            select o.*, p.*, oi.*, p.id pid, c.id cid, o.id oid, oi.id oiid, p.name pname, c.name cname
+                from product_ p
+                left join category_ c on p.cid = c.id
+                left join order_item_ oi on p.id =oi.pid
+                left join order_ o on o.id = oi.oid
+            where p.id = #{id}
+    </select>
+
+    <!-- if 标签 -->
+    <select id="listProductByName" parameterType="map" resultType="Product">
+        select * from product_
+        <if test="name != null">
+            where name like concat('%', #{name}, '%')
+        </if>
+    </select>
+
+    <!-- where 标签 -->
+    <!-- <where>标签会进行自动判断
+            如果任何条件都不成立，那么就在sql语句里就不会出现where关键字
+            如果有任何条件成立，会自动去掉多出来的 and 或者 or。
+    -->
+    <select id="listProductByNameByPrice" parameterType="map" resultType="Product">
+        select * from product_
+        <where>
+            <if test="name != null">
+                and name like concat('%', #{name}, '%')
+            </if>
+            <if test="price != null and price > 0">
+                and price > #{price}
+            </if>
+        </where>
+    </select>
+
+    <!-- set 标签 -->
+    <update id="updateProduct" parameterType="Product">
+        update product_
+        <set>
+            <if test="name != null">name = #{name}, </if>
+            <if test="price != null">price = #{price}</if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!-- choose 标签 相当于 switch 语句 -->
+    <select id="listProductChoose" parameterType="map" resultType="Product">
+        select * from product_
+        <where>
+            <choose>
+                <when test="name != null">
+                    and name like concat('%',#{name},'%')
+                </when>
+                <when test="price != null and price > 0">
+                    and price > #{price}
+                </when>
+                <otherwise>
+                    and id > 3
+                </otherwise>
+            </choose>
+        </where>
+    </select>
+
+    <!-- foreach 标签
+        foreach标签通常用于in 这样的语法里
+     -->
+    <select id="listProductForeach" parameterType="list" resultType="Product">
+        select * from product_
+            where id in
+                <foreach item="item" index="index" collection="list" open = "(" separator = "," close = ")">
+                    #{item}
+                </foreach>
+    </select>
+</mapper>
