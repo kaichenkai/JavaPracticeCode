@@ -17,6 +17,10 @@ import java.util.Map;
  * @create: 8/12/2020 17:35
  */
 public class Demo13PaginateTest {
+    /**
+     * 插入100条分类记录
+     * @throws IOException
+     */
     @Test
     public void addCategory() throws IOException {
         String resource = "mybatis-config.xml";
