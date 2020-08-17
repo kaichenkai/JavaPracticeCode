@@ -1,12 +1,13 @@
 package com.company.pojo;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * @author: kaichenkai
  * @create: 8/11/2020 15:42
  */
-public class Category {
+public class Category implements Serializable {
     private int id;
     private String name;
     //与产品的多对一关系

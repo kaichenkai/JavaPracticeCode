@@ -4,6 +4,8 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.company.pojo">
+    <!-- 启动对Category对象的二级缓存 -->
+    <cache/>
     <select id="listCategory" resultType="Category">
             select * from category_
     </select>
@@ -64,5 +66,10 @@
     <!-- 使用 pagehelper 进行分页查询   -->
     <select id="listCategoryPageHelper" resultType="Category">
         select * from category_
+    </select>
+
+    <!-- 查询总数 count -->
+    <select id="countCategory" resultType="int">
+        SELECT COUNT(*) FROM category_
     </select>
 </mapper>
