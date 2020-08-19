@@ -1,23 +1,33 @@
-<Configuration status="WARN" monitorInterval="300">
+<?xml version="1.0" encoding="UTF-8"?>
+<!--日志级别以及优先级排序: OFF > FATAL > ERROR > WARN > INFO > DEBUG > TRACE > ALL -->
+<!--status="WARN" :用于设置log4j2自身内部日志的信息输出级别，默认是OFF-->
+<!--monitorInterval="10"  :间隔秒数,自动检测配置文件的变更和重新配置本身-->
+<Configuration status="WARN" monitorInterval="10">
     <properties>
         <property name="LOG_HOME">E:\temp\logs</property>
         <property name="FILE_NAME">traffic</property>
     </properties>
     <Appenders>
-        <Console name="Console" target="SYSTEM_OUT">
-            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
-
+        <Console name="CONSOLE" target="SYSTEM_OUT">
+            <!--PatternLayout :输出日志的格式,LOG4J2定义了输出代码，包含了日志颜色
+            IDEA中，点击右上角->Edit Configurations，在VM options中添加
+            -Dlog4j.skipJansi=false
+            -->
+<!--            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %highlight{%-5level} [%t] %highlight{%c{1.}.%M(%L)}: %msg%n" />-->
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %highlight{%-5level} [%t] %highlight %logger{50}: %msg%n" />
+            <!-- <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" /> -->
         </Console>
+        <!--                                 filePattern="${LOG_HOME}/$${date:yyyy-MM}/${FILE_NAME}-%d{yyyy-MM-dd}.%i.log">-->
         <RollingRandomAccessFile name="DEFAULT_FILE_APPEND"
                                  fileName="${LOG_HOME}/${FILE_NAME}.log"
-                                 filePattern="${LOG_HOME}/$${date:yyyy-MM}/${FILE_NAME}-%d{yyyy-MM-dd}.%i.log">
+                                 filePattern="${LOG_HOME}/${FILE_NAME}-%d{yyyy-MM-dd}.log"> <!-- 按天生成日志 -->
             <PatternLayout
                     pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{50} - %msg%n" />
             <Policies>
                 <!--每个单位时间生成一个日志-->
                 <TimeBasedTriggeringPolicy interval="1" />
                 <!--当日志文件超过设置大小时，生成一个日志-->
-                <SizeBasedTriggeringPolicy size="200 MB" />
+                <SizeBasedTriggeringPolicy size="50 MB" />
             </Policies>
             <!--日志文件保留数量-->
             <DefaultRolloverStrategy max="15" />
@@ -31,8 +41,8 @@
             不能设置为INHERITED或者同义词NULL。默认是DEBUG
             可以包含零个或多个元素，标识这个appender将会添加到这个logger。
         -->
-        <Root level="info">
-            <AppenderRef ref="Console" />
+        <Root level="INFO">
+            <AppenderRef ref="CONSOLE" />
             <AppenderRef ref="DEFAULT_FILE_APPEND" />
         </Root>
         <!--    单独控制该包下所有类的日志级别，避免debug模式输出过多日志-->

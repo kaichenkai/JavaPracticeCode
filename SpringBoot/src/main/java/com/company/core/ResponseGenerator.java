@@ -26,6 +26,12 @@ public class ResponseGenerator {
                 .setCode(exceptionInfo.code)
                 .setMessage(exceptionInfo.message);
     }
+    public static <T> Response<T> genErrorResp(ExceptionInfo exceptionInfo, T data) {
+        return new Response()
+                .setCode(exceptionInfo.code)
+                .setMessage(exceptionInfo.message)
+                .setData(data);
+    }
 
     public static <T> Response<T> genResp(int code, String message, T data) {
         return new Response()

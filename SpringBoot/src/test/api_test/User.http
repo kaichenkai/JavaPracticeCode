@@ -1,0 +1,14 @@
+### User HTTP Request
+
+### 请求中不同查询参数的获取 jsonObj
+POST http://localhost:8082/user/jsonObj
+Content-Type: application/json
+
+//{"ids": 1, "names": "anson", "hobby": "badminton"}
+//{"id": 1, "name": "anson", "hobby": "badminton"}
+//{"id": 1, "name": "anson", "age": 12}
+{"id": 1, "names": "anson"}
+
+### 路径参数 校验
+GET http://localhost:8082/user/pathint/1=
+Accept: application/json

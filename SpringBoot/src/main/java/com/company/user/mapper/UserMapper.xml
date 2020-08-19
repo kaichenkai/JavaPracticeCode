@@ -6,9 +6,7 @@
         INSERT INTO t_user(username, password) VALUES(#{username}, #{password})
     </insert>
 
-    <select id="findById"
-            parameterType="Integer"
-            resultType="com.company.user.model.User">
-        SELECT id, username, password FROM t_user WHERE id = #{id}
+    <select id="findById" parameterType="int" resultType="com.company.user.model.User">
+        SELECT name FROM user_ WHERE id = #{id}
     </select>
 </mapper>

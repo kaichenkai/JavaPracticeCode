@@ -1,0 +1,10 @@
+### Category HTTP Request
+
+### 获取 Category 列表
+GET http://localhost:8082/category/list
+Content-Type: application/json
+
+
+### 获取 Category 列表(分页)
+GET http://localhost:8082/category/list?batchCount=2&offset=0
+Content-Type: application/json

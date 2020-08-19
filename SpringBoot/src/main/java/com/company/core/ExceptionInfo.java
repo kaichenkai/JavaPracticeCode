@@ -17,6 +17,10 @@ public enum ExceptionInfo {
 	 */
 	UNDEFINE(502, "undefine system exception"),
 
+	/**
+	 * 参数校验失败
+	 */
+	INVALID_PARAMS(400, "invalid parameter"),
 
 	/**
 	 * 无数据
