@@ -5,7 +5,6 @@ import com.company.category.service.CategoryService;
 import com.company.core.Response;
 import com.company.core.ResponseGenerator;
 import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,14 +40,14 @@ public class CategoryController {
             @Min(0)
             Integer batchCount){
         //分页
-        System.out.println(offset);
-        System.out.println(batchCount);
-        // TODO 沒有分頁效果
-//        PageHelper.offsetPage(offset, batchCount, false);
-        PageHelper.startPage(1, 2);
-        List<Category> categoryList = categoryService.listCategory();
-        PageInfo pageInfo = new PageInfo(categoryList);
-        System.out.println(pageInfo);
-        return ResponseGenerator.genSuccessResp(pageInfo);
+        PageHelper.offsetPage(offset, batchCount, false);
+//        List<Category> categoryList = categoryService.listCategory();
+        List<Category> categoryList = categoryService.selectAll();
+        System.out.println(categoryList);
+        System.out.println(categoryList.getClass());
+        for (Category category : categoryList) {
+            System.out.println(category);
+        }
+        return ResponseGenerator.genSuccessResp(categoryList);
     }
 }

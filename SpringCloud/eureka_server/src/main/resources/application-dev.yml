@@ -1,0 +1,13 @@
+server:
+  port: 8082
+
+#spring:
+  #数据源
+  #  datasource:
+  #thymeleaf 配置
+#  thymeleaf:
+#      mode: HTML5
+#      encoding: UTF-8
+#      content-type: text/html
+#      #缓存设置为false, 这样修改之后马上生效，便于调试
+#      cache: false

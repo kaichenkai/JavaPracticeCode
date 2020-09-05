@@ -10,5 +10,5 @@ Content-Type: application/json
 {"id": 1, "names": "anson"}
 
 ### 路径参数 校验
-GET http://localhost:8082/user/pathint/1=
+GET http://localhost:8082/user/pathint/1
 Accept: application/json

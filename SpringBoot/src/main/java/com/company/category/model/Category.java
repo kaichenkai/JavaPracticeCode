@@ -1,43 +1,31 @@
 package com.company.category.model;
 
+import lombok.Data;
+
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * @author: kaichenkai
  * @create: 7/1/2020 13:58
  */
-public class Category {
-    private int id;
 
+@Data
+@Table(name = "category_")
+public class Category {
+    @Id
+    @Column(name = "id")
+    private Integer id;
+
+    @Column(name = "name")
     private String name;
 
     public Category() {
     }
 
-    public Category(int id, String name, int age) {
+    public Category(Integer id, String name) {
         this.id = id;
         this.name = name;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
     }
 }

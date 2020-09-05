@@ -10,5 +10,5 @@ import java.util.List;
  * @create: 6/16/2020 17:08
  */
 public interface CategoryService {
-    public List<Category> listCategory();
+    List<Category> selectAll();
 }

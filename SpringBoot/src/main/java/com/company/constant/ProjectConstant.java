@@ -17,7 +17,7 @@ public final class ProjectConstant {
     /**
      * 生成的Mapper所在包
      */
-    public static final String MAPPER_PACKAGE = BASE_PACKAGE + MODULE_SUFFIX + ".dao";
+    public static final String MAPPER_PACKAGE = BASE_PACKAGE + MODULE_SUFFIX + ".mapper";
     /**
      * 生成的Service所在包
      */
@@ -39,9 +39,9 @@ public final class ProjectConstant {
      */
     public static final String SEESION_ACTIVETIMER = "active_timer";
     /**
-     * Mapper插件基础接口的完全限定名
+     * 通用Mapper插件基础接口的完全限定名
      */
-    public static final String MAPPER_INTERFACE_REFERENCE = BASE_PACKAGE + ".core.Mapper";
+    public static final String MAPPER_INTERFACE_REFERENCE = BASE_PACKAGE + ".commons.CommonMapper";
     /**
      * 返回成功的编码
      */
