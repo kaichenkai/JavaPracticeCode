@@ -35,6 +35,15 @@ spring:
       # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
       connect-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
 
+  #kafka
+  kafka:
+    bootstrap-servers: 10.10.4.70:9092
+    consumer:
+      auto-offset-reset: latest
+#      auto-offset-reset: latest
+      max-poll-records: 100
+      max-partition-fetch-bytes: 1000000
+
 mybatis:
   mapper-locations: classpath:com/company/**/mapper/*.xml
   #  type-aliases-package: com.company  #别名扫描

@@ -5,6 +5,8 @@ import com.company.category.service.CategoryService;
 import com.company.core.Response;
 import com.company.core.ResponseGenerator;
 import com.github.pagehelper.PageHelper;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,11 +32,15 @@ public class CategoryController {
 
     @GetMapping("list")
     @ResponseBody
+    @Operation(summary = "获取分类列表")//方法描述
     public Response listCategory(
+            @Parameter(description = "偏移量")//参数描述
             @RequestParam(value = "offset")
             @NotNull
             @Min(0)
             Integer offset,
+
+            @Parameter(description = "分页数量")//参数描述
             @RequestParam(value = "batchCount")
             @NotNull
             @Min(0)
