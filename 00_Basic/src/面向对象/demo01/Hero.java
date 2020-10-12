@@ -5,10 +5,14 @@ package 面向对象.demo01;
  * @create: 6/23/2020 10:38
  */
 public class Hero {
-    private String name;
+    private String name = "teemo";
     private float hp;
     private float armor;//护甲值
     private int moveSpeed;//移动速度
+
+    public void getName(){
+        System.out.println(this.name);
+    }
 
     public static void main(String[] args) {
         Hero garen =  new Hero();
